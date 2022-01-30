@@ -1,0 +1,15 @@
+{
+  "database": {
+    "dbConnection": "pgsql",
+    "dbHost": "localhost",
+    "dbPort": 5432,
+    "dbDatabase": "banner_rotator",
+    "dbUsername": "br_user",
+    "dbPassword": "password"
+  },
+
+  "server": {
+    "httpHost": "localhost",
+    "httpPort": 8080
+  }
+}
