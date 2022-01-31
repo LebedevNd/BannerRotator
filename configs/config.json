@@ -1,7 +1,7 @@
 {
   "database": {
     "dbConnection": "pgsql",
-    "dbHost": "localhost",
+    "dbHost": "pg_db",
     "dbPort": 5432,
     "dbDatabase": "banner_rotator",
     "dbUsername": "br_user",

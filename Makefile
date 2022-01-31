@@ -16,6 +16,14 @@ build-img:
 		-t $(DOCKER_IMG) \
 		-f build/Dockerfile .
 
+build-compose:
+	docker-compose up \
+		--build \
+		-d
+
+up-compose: build-compose
+	docker-compose up $(DOCKER_IMG)
+
 run-img: build-img
 	docker run $(DOCKER_IMG)
 

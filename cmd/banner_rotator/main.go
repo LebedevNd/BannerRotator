@@ -17,7 +17,7 @@ import (
 	_ "github.com/jackc/pgx/stdlib"
 )
 
-const configFile string = "/configs/config.json"
+const configFile string = "./configs/config.json"
 
 func main() {
 	config, err := NewConfig(configFile)

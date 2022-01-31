@@ -29,13 +29,13 @@ type ServerConf struct {
 func NewConfig(configPath string) (Config, error) {
 	var config Config
 
-	pwd, err := os.Getwd()
+	_, err := os.Getwd()
 	if err != nil {
 		return Config{}, err
 	}
 
 	fmt.Println("Reading from config file...")
-	file, err := ioutil.ReadFile(pwd + configPath)
+	file, err := ioutil.ReadFile(configPath)
 	if err != nil {
 		return Config{}, err
 	}
