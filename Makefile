@@ -5,7 +5,10 @@ GIT_HASH := $(shell git log --format="%h" -n 1)
 LDFLAGS := -X main.release="develop" -X main.buildDate=$(shell date -u +%Y-%m-%dT%H:%M:%S) -X main.gitHash=$(GIT_HASH)
 
 build:
-	go build -v -o $(BIN) -ldflags "$(LDFLAGS)" ./cmd/banner_rotator
+	docker-compose -f ./build/docker-compose.yaml build
+
+up:
+	docker-compose -f ./build/docker-compose.yaml up
 
 run: build
 	$(BIN)
@@ -15,14 +18,6 @@ build-img:
 		--build-arg=LDFLAGS="$(LDFLAGS)" \
 		-t $(DOCKER_IMG) \
 		-f build/Dockerfile .
-
-build-compose:
-	docker-compose up \
-		--build \
-		-d
-
-up-compose: build-compose
-	docker-compose up $(DOCKER_IMG)
 
 run-img: build-img
 	docker run $(DOCKER_IMG)
