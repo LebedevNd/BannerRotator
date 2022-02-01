@@ -31,6 +31,7 @@ ENV BIN_FILE "/opt/banner_rotator/banner_rotator-app"
 COPY --from=build ${BIN_FILE} ${BIN_FILE}
 
 ENV CONFIG_FILE /etc/banner_rotator/config.json
-COPY ./configs/config.json ${CONFIG_FILE}
+ENV CONFIG_FILE2 ./configs/config.json
+COPY ./configs/config.json ${CONFIG_FILE2}
 
 CMD ${BIN_FILE}
