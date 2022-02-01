@@ -14,7 +14,7 @@ services:
     volumes:
       - pg_banner_rotator:/var/lib/postgresql/data
     ports:
-      - ${POSTGRES_PORT:-5432}:5432
+      - ${POSTGRES_PORT:-5444}:5432
 
   go-web-app:
     restart: always

@@ -9,7 +9,7 @@
   },
 
   "server": {
-    "httpHost": "localhost",
+    "httpHost": "go-web-app",
     "httpPort": 8080
   }
 }
