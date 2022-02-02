@@ -1,5 +1,5 @@
 # Собираем в гошке
-FROM golang:1.16.2 as build
+FROM golang:1.17.6 as build
 
 ENV BIN_FILE /opt/banner_rotator/banner_rotator-app
 ENV CODE_DIR /go/src/
@@ -9,6 +9,7 @@ WORKDIR ${CODE_DIR}
 # Кэшируем слои с модулями
 COPY go.mod .
 COPY go.sum .
+
 RUN go mod download
 
 COPY . ${CODE_DIR}

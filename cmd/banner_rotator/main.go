@@ -5,6 +5,7 @@ import (
 	"database/sql"
 	"fmt"
 	"github.com/LebedevNd/BannerRotator/internal/app"
+	"github.com/LebedevNd/BannerRotator/internal/kafka"
 	"github.com/LebedevNd/BannerRotator/internal/models/database"
 	internalhttp "github.com/LebedevNd/BannerRotator/internal/server"
 	"os"
@@ -20,6 +21,12 @@ import (
 const configFile string = "./configs/config.json"
 
 func main() {
+	err := kafka.PushCommentToQueue("test", []byte("messege yoyoyo!"))
+	if err != nil {
+		fmt.Println(err)
+		fmt.Println("    !!42ERROR42!!    ")
+		return
+	}
 	config, err := NewConfig(configFile)
 	if err != nil {
 		fmt.Println(err)
